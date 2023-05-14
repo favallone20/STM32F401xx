@@ -183,9 +183,9 @@ typedef struct
 #define GPIOE_PCLOCK_EN() (RCC->AHB1ENR |= (1<<4))
 #define GPIOH_PCLOCK_EN() (RCC->AHB1ENR |= (1<<7))
 
-#pragma endregion CLOCK_ENABLE
+//--------------------------------------------------------------------------------
 
-#pragma region CLOCK_DISABLE
+//-----------------------------------CLOCK DISABLE REGION---------------------------------------------
 
 /**
  * @brief Clock Disable Macros for GPIOx peripherals
@@ -200,5 +200,11 @@ typedef struct
 
 //--------------------------------------------------------------------------------
 
-
+//---------------------- Generic macros --------------------------
+#define ENABLE 1
+#define DISABLE 0
+#define SET ENABLE
+#define RESET DISABLE
+#define GPIO_PIN_SET SET
+#define GPIO_PIN_RESET RESET
 #endif // INC_STM32F401XX
