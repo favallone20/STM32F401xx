@@ -1,0 +1,26 @@
+.vscode/
+
+# Ignore object files and executables
+*.o
+*.a
+*.out
+
+# Ignore build directories
+build/
+Debug/
+Release/
+
+# Ignore IDE and toolchain files
+.project
+.cproject
+.settings/
+*.launch
+*.pyc
+*.pyo
+*.swp
+
+# Ignore backup and temporary files
+*~
+.#*
+.DS_Store
+Thumbs.db
