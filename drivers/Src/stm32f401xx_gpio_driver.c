@@ -82,17 +82,17 @@ void GPIO_Init(GPIO_Handle_t *pGPIOHandle)
 
 void GPIO_DeInit(GPIO_RegDef_t *pGPIOx)
 {
-     if (GPIOA_BASEADDR == pGPIOx)
+     if (GPIOA == pGPIOx)
          GPIOA_REG_RESET();
-     else if (GPIOB_BASEADDR == pGPIOx)
+     else if (GPIOB == pGPIOx)
          GPIOB_REG_RESET();
-     else if (GPIOC_BASEADDR == pGPIOx)
+     else if (GPIOC == pGPIOx)
          GPIOC_REG_RESET();
-     else if (GPIOD_BASEADDR == pGPIOx)
+     else if (GPIOD == pGPIOx)
          GPIOD_REG_RESET();
-     else if (GPIOE_BASEADDR == pGPIOx)
+     else if (GPIOE == pGPIOx)
          GPIOE_REG_RESET();
-     else if (GPIOH_BASEADDR == pGPIOx)
+     else if (GPIOH == pGPIOx)
          GPIOH_REG_RESET();
 }
 
