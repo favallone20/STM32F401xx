@@ -201,12 +201,12 @@ typedef struct
 //--------------------------------------------------------------------------------
 
 //-----------------------------------REGISTERS RESET REGION---------------------------------------------
-#define GPIOA_REG_RESET() do{(RCC->AHB1RSTR |= (1<<0)); (RCC->AHB1RSTR &= (0<<0))}while(0)
-#define GPIOB_REG_RESET() do{(RCC->AHB1RSTR |= (1<<1)); (RCC->AHB1RSTR &= (0<<1))}while(0)
-#define GPIOC_REG_RESET() do{(RCC->AHB1RSTR |= (1<<2)); (RCC->AHB1RSTR &= (0<<2))}while(0)
-#define GPIOD_REG_RESET() do{(RCC->AHB1RSTR |= (1<<3)); (RCC->AHB1RSTR &= (0<<3))}while(0)
-#define GPIOE_REG_RESET() do{(RCC->AHB1RSTR |= (1<<4)); (RCC->AHB1RSTR &= (0<<4))}while(0)
-#define GPIOH_REG_RESET() do{(RCC->AHB1RSTR |= (1<<7)); (RCC->AHB1RSTR &= (0<<7))}while(0)
+#define GPIOA_REG_RESET() do{(RCC->AHB1RSTR |= (1<<0)); (RCC->AHB1RSTR &= (0<<0));}while(0)
+#define GPIOB_REG_RESET() do{(RCC->AHB1RSTR |= (1<<1)); (RCC->AHB1RSTR &= (0<<1));}while(0)
+#define GPIOC_REG_RESET() do{(RCC->AHB1RSTR |= (1<<2)); (RCC->AHB1RSTR &= (0<<2));}while(0)
+#define GPIOD_REG_RESET() do{(RCC->AHB1RSTR |= (1<<3)); (RCC->AHB1RSTR &= (0<<3));}while(0)
+#define GPIOE_REG_RESET() do{(RCC->AHB1RSTR |= (1<<4)); (RCC->AHB1RSTR &= (0<<4));}while(0)
+#define GPIOH_REG_RESET() do{(RCC->AHB1RSTR |= (1<<7)); (RCC->AHB1RSTR &= (0<<7));}while(0)
 
 // we don't need of a cycle, but this is a way to execute more instructions with one macro in C.
 
