@@ -17,10 +17,9 @@
  */
 
 #include <stdint.h>
-#include "stm32f401xx.h"
+#include "stm32f401xx_gpio_driver.h"
 
 int main(void)
 {
-    /* Loop forever */
-	for(;;);
+	while(1);
 }
