@@ -98,24 +98,30 @@ void GPIO_DeInit(GPIO_RegDef_t *pGPIOx)
 
 uint8_t GPIO_ReadFromInputPin(GPIO_RegDef_t *pGPIOx, uint8_t pinNumber)
 {
-    return 0;
+    return (pGPIOx->IDR >> pinNumber) & 0x00000001;
 }
 
 uint16_t GPIO_ReadFromInputPort(GPIO_RegDef_t *pGPIOx)
 {
-    return 0;
+     return (pGPIOx->IDR);
 }
 
 void GPIO_WriteToOutputPin(GPIO_RegDef_t *pGPIOx, uint8_t pinNumber, uint8_t value)
 {
+    if(GPIO_PIN_SET == value)
+         pGPIOx->ODR |= 1 << pinNumber;
+    else if (GPIO_PIN_RESET == value)
+         pGPIOx->ODR &= ~(1 << pinNumber);
 }
 
 void GPIO_WriteToOutputPort(GPIO_RegDef_t *pGPIOx, uint16_t value)
 {
+    pGPIOx->ODR = value;
 }
 
 void GPIO_ToggleOutputPin(GPIO_RegDef_t *pGPIOx, uint8_t pinNumber)
 {
+   pGPIOx->ODR ^= (1 << pinNumber);
 }
 
 void GPIO_IRQConfig(uint8_t IRQNumber, uint8_t IRQPriority, uint8_t en)

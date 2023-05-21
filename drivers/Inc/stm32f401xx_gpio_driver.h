@@ -35,8 +35,8 @@
 
 // @GPIO_OUTPUT_TYPE
 /*GPIO port output type*/
-#define GPIO_OP_TYPE_PP 0
-#define GPIO_OP_TYPE_OD 1
+#define GPIO_OP_TYPE_PP 0 //push pull
+#define GPIO_OP_TYPE_OD 1 // open drain
 
 // @GPIO_OUTPUT_SPEED
 /*GPIO port output speed*/

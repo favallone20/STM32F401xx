@@ -99,6 +99,7 @@ typedef struct
     volatile uint32_t OTYPER;  /*!< GPIO port output type register */
     volatile uint32_t OSPEEDR; /*!< GPIO port output speed register */
     volatile uint32_t PUPDR;   /*!< GPIO port pull-up/pull-down register */
+    volatile uint32_t IDR;     /*!< GPIO port input data register */
     volatile uint32_t ODR;     /*!< GPIO port output data register */
     volatile uint32_t BSRR;    /*!< GPIO port bit set/reset register */
     volatile uint32_t LCKR;    /*!< GPIO port configuration lock register */
