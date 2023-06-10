@@ -48,7 +48,32 @@ void GPIO_Init(GPIO_Handle_t *pGPIOHandle)
             pGPIOHandle->GPIO_PinConfig.GPIO_PinMode << (2 * pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber);
     }
     else{
-        // in case of interrupt mode
+        if (pGPIOHandle->GPIO_PinConfig.GPIO_PinMode == GPIO_MODE_IT_FT)
+        {
+            // 1. configure the falling trigger selection register (FSTR)
+            EXTI->FTSR |= (1 << pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber);
+            
+            //clear the relative RTSR bit
+            EXTI->RTSR &= ~(1 << pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber);
+        }
+        else if(pGPIOHandle->GPIO_PinConfig.GPIO_PinMode == GPIO_MODE_IT_RT){
+            // 1. configure the RSTR
+            EXTI->RTSR |= (1 << pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber);
+            
+            //clear the relative FTSR bit
+            EXTI->FTSR &= ~(1 << pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber);
+
+        }
+        else if(pGPIOHandle->GPIO_PinConfig.GPIO_PinMode == GPIO_MODE_IT_RFT){
+            // 1. configure both FSTR and RSTR
+            EXTI->FTSR |= (1 << pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber);
+            EXTI->RTSR |= (1 << pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber);
+        }
+
+        // 2. configure the GPIO port selection in SYSCFG_EXTICR
+
+        // 3. enable the exti interrupt delivery using IMR
+        EXTI->IMR |= 1 << pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber;
     }
     /*2. configure the speed of gpio pin*/
     pGPIOHandle->pGPIOx->OSPEEDR &= ~(0x3 * pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber); //clearing

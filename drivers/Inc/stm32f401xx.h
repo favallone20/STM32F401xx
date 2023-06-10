@@ -170,6 +170,28 @@ typedef struct
 
 //--------------------------------------------------------------------------------
 
+/**
+    @brief EXTI Register Definition structure
+    This structure maps the EXTI peripheral memory in the device's memory.
+**/
+
+typedef struct
+{
+    volatile uint32_t IMR;   /**< Interrupt Mask Register */
+    volatile uint32_t EMR;   /**< Event Mask Register */
+    volatile uint32_t RTSR;  /**< Rising Trigger Selection Register */
+    volatile uint32_t FTSR;  /**< Falling Trigger Selection Register */
+    volatile uint32_t SWIER; /**< Software Interrupt Event Register */
+    volatile uint32_t PR;    /**< Pending Register */
+
+} EXIT_RegDef_t;
+/**
+ * @brief Pointer definitions for EXIT peripheral.
+ *
+ * These macros define pointer to the EXTI peripheral for the STM32 microcontroller.
+ * (Peripheral base addresses typecasted to xxx_RegDef_t)
+ */
+#define EXTI ((EXIT_RegDef_t *)EXTI_BASEADDR)
 
 //-----------------------------------CLOCK ENABLE REGION---------------------------------------------
 
